@@ -1,0 +1,43 @@
+html, body {
+  margin: 0;
+  padding: 0
+}
+
+#container {
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+#vacuum {
+  background-image: url("broom-animated2.gif");
+  background-size: cover;
+  background-position: center bottom;
+  position: absolute;
+  bottom: 5px;
+  left: 400px;
+  width: 70px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+#bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  font-size: 30px;
+  width: 500px;
+}
+
+.dust {
+  position: absolute;
+  top: 0px;
+  left: 250px;
+  width: 30px;
+  height: 30px;
+  background-image: url("dust2.png");
+  background-size: cover;
+  background-position: center;
+
+}
