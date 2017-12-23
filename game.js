@@ -70,7 +70,7 @@ const brushRange = 40;
 const brushSize = 30;
 const submarine = new Sound('submarine.mp3');
 
-const container = d3.select('#container')
+const gameDiv = d3.select('#game')
   .style('width', width + 'px')
   .style('height', height + 'px');
 
@@ -105,7 +105,7 @@ function generateSpeed() {
 function generateDust() {
   const left = Math.max(0, Math.random() * width - dustSize);
   const speed = generateSpeed();
-  const div = container.append('div')
+  const div = gameDiv.append('div')
     .classed('dust', true)
     .style('left', left + 'px');
   const top = 0;
