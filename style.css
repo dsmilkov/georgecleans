@@ -78,6 +78,7 @@ html, body {
 }
 
 #theend {
+  display: none;
   text-align: center;
   padding: 20px;
   border: 1px solid black;
@@ -87,5 +88,4 @@ html, body {
   position: absolute;
   top: 200px;
   z-index: 100;
-  display: none;
 }
