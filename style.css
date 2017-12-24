@@ -9,15 +9,24 @@ html, body {
 }
 
 #container {
-  width: 500px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
   margin: 0 auto;
   margin-top: 30px;
+  align-items: center;
 }
 
 #game {
-  position: relative;
-  border: 1px solid black;
+  display: flex;
+  width: 100%;
   margin: 20px 0;
+}
+
+#center {
+  width: 500px;
+  border: 1px solid black;
+  position: relative;
 }
 
 #vacuum {
@@ -37,6 +46,7 @@ html, body {
   display: flex;
   justify-content: space-between;
   font-size: 20px;
+  width: 500px;
 }
 
 .dust {
@@ -51,19 +61,13 @@ html, body {
 }
 
 #left {
+  flex-grow: 2;
   height: 500px;
-  width: 240px;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 #right {
+  flex-grow: 2;
   height: 500px;
-  width: 240px;
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 #tagline {

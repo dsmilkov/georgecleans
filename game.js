@@ -71,8 +71,8 @@ const brushSize = 30;
 const submarine = new Sound('submarine.mp3');
 
 const gameDiv = d3.select('#game')
-  .style('width', width + 'px')
   .style('height', height + 'px');
+const centerGameDiv = gameDiv.select('#center');
 
 const vacuum = d3.select('#vacuum');
 const vacuumWidth = parseInt(vacuum.style('width'));
@@ -96,10 +96,10 @@ d3.select('body').call(d3.keybinding()
 
 function moveVacuum() {
   if (leftMousedown) {
-    move(-.3)({preventDefault: () => {}});
+    move(-.35)({preventDefault: () => {}});
   }
   if (rightMousedown) {
-    move(.3)({preventDefault: () => {}});
+    move(.35)({preventDefault: () => {}});
   }
   brushLeft = Math.min(width - vacuumWidth,  Math.max(0, momentum + brushLeft));
   vacuum.style('left', brushLeft + 'px');
@@ -114,7 +114,7 @@ function generateSpeed() {
 function generateDust() {
   const left = Math.max(0, Math.random() * width - dustSize);
   const speed = generateSpeed();
-  const div = gameDiv.append('div')
+  const div = centerGameDiv.append('div')
     .classed('dust', true)
     .style('left', left + 'px');
   const top = 0;
