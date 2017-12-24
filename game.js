@@ -167,7 +167,7 @@ function tick() {
         lives--;
         submarine.play();
         if (lives == 0) {
-          d3.select('#theend').style('display', 'block');
+          d3.select('#theend').style('visibility', 'visible');
           d3.select('#lives span').html('THE END');
           return;
         }
