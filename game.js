@@ -79,11 +79,14 @@ const vacuumWidth = parseInt(vacuum.style('width'));
 
 let brushLeft = width/2;
 let momentum = 0;
+let leftMousedown = false;
+let rightMousedown = false;
 
 function move(x) {
   return function(event) {
       event.preventDefault();
       momentum += x;
+      momentum *= 1.1;
   };
 }
 
@@ -92,6 +95,12 @@ d3.select('body').call(d3.keybinding()
 .on('→', move(2)));
 
 function moveVacuum() {
+  if (leftMousedown) {
+    move(-.3)({preventDefault: () => {}});
+  }
+  if (rightMousedown) {
+    move(.3)({preventDefault: () => {}});
+  }
   brushLeft = Math.min(width - vacuumWidth,  Math.max(0, momentum + brushLeft));
   vacuum.style('left', brushLeft + 'px');
   momentum *= 0.9;
@@ -175,6 +184,34 @@ function tick() {
   }
 }
 
+// Setup touch button
+d3.select("#left").on('mousedown', () => {
+  leftMousedown = true;
+});
+d3.select("#left").on('touchstart', () => {
+  leftMousedown = true;
+});
+
+d3.select("#left").on('mouseup', () => {
+  leftMousedown = false;
+});
+d3.select("#left").on('touchend', () => {
+  leftMousedown = false;
+});
+
+d3.select("#right").on('mousedown', () => {
+  rightMousedown = true;
+});
+d3.select("#right").on('touchstart', () => {
+  rightMousedown = true;
+});
+
+d3.select("#right").on('mouseup', () => {
+  rightMousedown = false;
+});
+d3.select("#right").on('touchend', () => {
+  rightMousedown = false;
+});
 
 
 dusts.push(generateDust());

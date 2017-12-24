@@ -50,6 +50,32 @@ html, body {
   background-position: center;
 }
 
+#left {
+  height: 500px;
+  width: 180px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#left:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+#right {
+  height: 500px;
+  width: 180px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#right:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
 #tagline {
   display: flex;
   font-size: 30px;
