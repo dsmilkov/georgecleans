@@ -96,10 +96,10 @@ d3.select('body').call(d3.keybinding()
 
 function moveVacuum() {
   if (leftMousedown) {
-    move(-.35)({preventDefault: () => {}});
+    move(-.45)({preventDefault: () => {}});
   }
   if (rightMousedown) {
-    move(.35)({preventDefault: () => {}});
+    move(.45)({preventDefault: () => {}});
   }
   brushLeft = Math.min(width - vacuumWidth,  Math.max(0, momentum + brushLeft));
   vacuum.style('left', brushLeft + 'px');
@@ -184,41 +184,25 @@ function tick() {
 }
 
 // Setup touch button
-// d3.select("#left").on('mousedown', function() {
-//   d3.select(this).style('background-color', '#ccc');
-//   d3.event.stopPropagation();
-//   leftMousedown = true;
-// });
 d3.select("#left").on('touchstart', function() {
+  d3.select(this).style('background-color', '#ccc');
   d3.event.stopPropagation();
   leftMousedown = true;
 });
-// d3.select("#left").on('mouseup', function() {
-//   d3.select(this).style('background-color', null);
-//   d3.event.stopPropagation();
-//   leftMousedown = false;
-// });
 d3.select("#left").on('touchend', function() {
+  d3.select(this).style('background-color', null);
   d3.event.stopPropagation();
   leftMousedown = false;
 });
 
-// d3.select("#right").on('mousedown', function() {
-//   d3.select(this).style('background-color', '#ccc');
-//   d3.event.stopPropagation();
-//   rightMousedown = true;
-// });
+
 d3.select("#right").on('touchstart', function () {
+  d3.select(this).style('background-color', '#ccc');
   d3.event.stopPropagation();
   rightMousedown = true;
 });
-
-// d3.select("#right").on('mouseup', function () {
-//   d3.select(this).style('background-color', null);
-//   d3.event.stopPropagation();
-//   rightMousedown = false;
-// });
 d3.select("#right").on('touchend', function() {
+  d3.select(this).style('background-color', null);
   d3.event.stopPropagation();
   rightMousedown = false;
 });
