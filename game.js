@@ -151,7 +151,6 @@ function tick() {
       if (performance.now() - start > 10000) {
         start = performance.now();
         probDust *= 1.3;
-        console.log(probDust);
       }
     }
   }
@@ -185,31 +184,41 @@ function tick() {
 }
 
 // Setup touch button
-d3.select("#left").on('mousedown', () => {
+d3.select("#left").on('mousedown', function() {
+  d3.select(this).style('background-color', '#ccc');
+  d3.event.stopPropagation();
   leftMousedown = true;
 });
-d3.select("#left").on('touchstart', () => {
+d3.select("#left").on('touchstart', function() {
+  d3.event.stopPropagation();
   leftMousedown = true;
 });
 
-d3.select("#left").on('mouseup', () => {
+d3.select("#left").on('mouseup', function() {
+  d3.select(this).style('background-color', null);
+  d3.event.stopPropagation();
   leftMousedown = false;
 });
-d3.select("#left").on('touchend', () => {
+d3.select("#left").on('touchend', function() {
+  d3.event.stopPropagation();
   leftMousedown = false;
 });
 
-d3.select("#right").on('mousedown', () => {
+d3.select("#right").on('mousedown', function() {
+  d3.event.stopPropagation();
   rightMousedown = true;
 });
-d3.select("#right").on('touchstart', () => {
+d3.select("#right").on('touchstart', function () {
+  d3.event.stopPropagation();
   rightMousedown = true;
 });
 
-d3.select("#right").on('mouseup', () => {
+d3.select("#right").on('mouseup', function () {
+  d3.event.stopPropagation();
   rightMousedown = false;
 });
-d3.select("#right").on('touchend', () => {
+d3.select("#right").on('touchend', function() {
+  d3.event.stopPropagation();
   rightMousedown = false;
 });
 
