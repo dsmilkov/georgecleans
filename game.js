@@ -86,7 +86,6 @@ function move(x) {
   return function(event) {
       event.preventDefault();
       momentum += x;
-      momentum *= 1.1;
   };
 }
 
@@ -103,7 +102,7 @@ function moveVacuum() {
   }
   brushLeft = Math.min(width - vacuumWidth,  Math.max(0, momentum + brushLeft));
   vacuum.style('left', brushLeft + 'px');
-  momentum *= 0.9;
+  momentum *= 0.95;
 }
 
 
